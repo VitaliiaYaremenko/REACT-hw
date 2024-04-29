@@ -1,3 +1,3 @@
-# React + Vite
+**ListGroup.jsx**
 
-**Homework description**
+Реализуйте компонент ListGroup, который отрисовывает переданных детей, оборачивая их в список.
