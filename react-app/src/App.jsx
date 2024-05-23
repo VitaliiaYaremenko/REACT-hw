@@ -1,9 +1,14 @@
-function App() {
+import React from 'react';
+import PostCatalog from './components/PostCatalog';
 
-  return (
-      <>
-      </>
-  )
-}
+const App = () => {
+    return (
+        <div className="App">
+            <h1>Post Catalog</h1>
+            <PostCatalog />
+        </div>
+    );
+};
 
-export default App
+export default App;
+
