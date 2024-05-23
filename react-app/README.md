@@ -1,3 +1,5 @@
-# React + Vite
+**Card.jsx**
 
-**Homework description**
+Реализуйте компонент <Card> так, чтобы можно составлять такую структуру — layout.jsx
+
+Получившийся HTML — layout.html
