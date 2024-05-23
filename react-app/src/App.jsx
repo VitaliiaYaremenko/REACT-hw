@@ -1,9 +1,23 @@
-function App() {
+import React, { useState } from 'react';
+import MarkdownEditor from './components/MarkdownEditor';
 
-  return (
-      <>
-      </>
-  )
-}
+const App = () => {
+    const [content, setContent] = useState('');
 
-export default App
+    const handleContentChange = (newContent) => {
+        setContent(newContent);
+    };
+
+    return (
+        <div>
+            <MarkdownEditor onContentChange={handleContentChange} />
+            <div>
+                <h3>Editor Content:</h3>
+                <pre>{content}</pre>
+            </div>
+        </div>
+    );
+};
+
+export default App;
+
