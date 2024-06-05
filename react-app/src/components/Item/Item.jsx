@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Row, Col, Container } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
+import '../TodoBox.css';
 
 const Item = ({ task, onRemove }) => {
     return (
-        <Container>
-            <Row className="align-items-center">
-                <Col xs="auto">
+        <Col xs={8} sm={8} md={8} lg={8} xl={8} className="mb-3 mt-3">
+            <Card className="task-item " border="secondary">
+                <Card.Body>
+                    <div className="task-text mb-2">{task.text}</div>
                     <Button
                         variant="danger"
                         size="sm"
                         onClick={() => onRemove(task.id)}
+                        className="w-100"
                     >
-                        -
+                        Remove
                     </Button>
-                </Col>
-                <Col>{task.text}</Col>
-            </Row>
-            <hr />
-        </Container>
+                </Card.Body>
+            </Card>
+        </Col>
     );
 };
 
@@ -29,4 +30,5 @@ Item.propTypes = {
     }).isRequired,
     onRemove: PropTypes.func.isRequired,
 };
+
 export default Item;
