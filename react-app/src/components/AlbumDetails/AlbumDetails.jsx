@@ -31,13 +31,13 @@ const AlbumDetails = () => {
             <h1 className="my-4">Фотографии из альбома: {id}</h1>
             <Row>
                 {photos.map(photo => (
-                    <Col  key={photo.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                        <Card className="photo-card">
+                    <Col  key={photo.id}  className="mb-4">
+                        <Card style={{ width: '18rem' }} className='photo-card'>
                             <Card.Img variant="top" src={photo.thumbnailUrl} alt={photo.title} className="photo-card-img" />
                             <Card.Body className='text'>
-                                <Card.Title>
+                                <Card.Text className="mb-2 text-muted">
                                     {capitalizeFirstLetter(photo.title)}
-                                </Card.Title>
+                                </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
