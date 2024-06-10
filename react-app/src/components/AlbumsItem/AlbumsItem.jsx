@@ -13,7 +13,7 @@ const AlbumsItem = () => {
                 const data = await response.json();
                 setAlbums(data);
             } catch (error) {
-                console.error('Ошибка при получении альбомов:', error);
+                console.error('Помилка при отриманні альбому:', error);
             }
         };
 
@@ -21,12 +21,12 @@ const AlbumsItem = () => {
     }, []);
 
     if (!albums.length) {
-        return <Container><p>Загрузка альбомов...</p></Container>;
+        return <Container><p>Завантаження альбомів...</p></Container>;
     }
 
     return (
         <Container>
-            <h1 className="my-5 text-center">Альбомы</h1>
+            <h1 className="my-5 text-center">Альбоми</h1>
             <ListGroup className='mb-5' variant="flush">
                 {albums.map(album => (
                     <ListGroup.Item key={album.id} className='text-style'>

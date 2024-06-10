@@ -12,10 +12,11 @@ const AlbumDetails = () => {
             try {
                 const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${id}`);
                 const data = await response.json();
-                console.log(data); // Проверка данных
+                console.log(data);
+
                 setPhotos(data);
             } catch (error) {
-                console.error('Ошибка при получении фотографий:', error);
+                console.error('Фото не отримано:', error);
             }
         };
 
@@ -23,12 +24,12 @@ const AlbumDetails = () => {
     }, [id]);
 
     if (!photos.length) {
-        return <Container><p>Загрузка фотографий...</p></Container>;
+        return <Container><p>Завантаження фото...</p></Container>;
     }
 
     return (
         <Container>
-            <h1 className="my-4">Фотографии из альбома: {id}</h1>
+            <h1 className="my-4">Альбом: {id}</h1>
             <Row>
                 {photos.map(photo => (
                     <Col  key={photo.id}  className="mb-4">
