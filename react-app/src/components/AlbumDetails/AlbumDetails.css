@@ -1,0 +1,13 @@
+.photo-card {
+    width: 100%;
+    height: 400px;
+}
+
+.photo-card-img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.text {
+    overflow: hidden;
+}
