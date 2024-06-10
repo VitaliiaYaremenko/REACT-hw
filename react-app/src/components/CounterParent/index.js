@@ -1,3 +1,3 @@
-import CounterParent from '/CounterParent.jsx';
+import CounterParent from './CounterParent.jsx';
 
 export default CounterParent;

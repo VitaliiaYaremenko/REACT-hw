@@ -3,6 +3,11 @@ import './styleCounter.css';
 
 class Counter extends React.Component{
     render() {
+        return (
+            <div className='textStyle'>
+                {this.props.display}
+            </div>
+        )
     }
 }
 
