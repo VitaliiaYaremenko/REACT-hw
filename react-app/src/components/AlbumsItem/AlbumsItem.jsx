@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, ListGroup } from 'react-bootstrap';
 import {capitalizeFirstLetter} from '../utils/utils.js'
 import './Item.css';
+import PropTypes from "prop-types";
 const AlbumsItem = () => {
     const [albums, setAlbums] = useState([]);
 
@@ -38,6 +39,15 @@ const AlbumsItem = () => {
             </ListGroup>
         </Container>
     );
+};
+
+AlbumsItem.propTypes = {
+    albums: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired
+        })
+    )
 };
 
 export default AlbumsItem;

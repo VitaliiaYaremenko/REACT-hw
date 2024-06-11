@@ -1,11 +1,10 @@
 .photo-card {
     width: 100%;
-    height: 600px;
 }
 
 .photo-card-img {
     object-fit: cover;
-    height: 100%;
+    height: 600px;
 }
 
 .text {
