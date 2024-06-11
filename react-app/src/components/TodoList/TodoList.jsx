@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import TodoForm from '../TodoForm';
 import TodoItem from '../TodoItem';
-import { Row } from 'react-bootstrap';
 
-function TodoList() {
+const TodoList = () => {
     const [todos, setTodos] = useState([]);
 
     const addTodo = (todo) => {
-        setTodos([...todos, todo]);
+        if (Array.isArray(todo)) {
+            setTodos([]);
+        } else {
+            setTodos([...todos, todo]);
+        }
     };
 
     const deleteTodo = (id) => {
@@ -15,20 +18,18 @@ function TodoList() {
     };
 
     const toggleComplete = (id) => {
-        setTodos(todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
-    };
-
-    const clearTodos = () => {
-        setTodos([]);
+        setTodos(todos.map(todo =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        ));
     };
 
     return (
         <div className="row">
             <div className="col-4">
-                <TodoForm addTodo={addTodo} clearTodos={clearTodos} />
+                <TodoForm addTodo={addTodo} />
             </div>
             <div className="col-8">
-                <Row id="todoItems">
+                <div className="row" id="todoItems">
                     {todos.map(todo => (
                         <TodoItem
                             key={todo.id}
@@ -37,10 +38,10 @@ function TodoList() {
                             toggleComplete={toggleComplete}
                         />
                     ))}
-                </Row>
+                </div>
             </div>
         </div>
     );
-}
+};
 
 export default TodoList;
