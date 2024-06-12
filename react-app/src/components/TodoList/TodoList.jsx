@@ -1,45 +1,51 @@
 import React, { useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import TodoForm from '../TodoForm';
 import TodoItem from '../TodoItem';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
 
-    const addTodo = (todo) => {
-        if (Array.isArray(todo)) {
-            setTodos([]);
-        } else {
-            setTodos([...todos, todo]);
-        }
+    const addTodo = (title, description) => {
+        const newTodo = { title, description, completed: false };
+        setTodos([...todos, newTodo]);
     };
 
-    const deleteTodo = (id) => {
-        setTodos(todos.filter(todo => todo.id !== id));
+    const deleteTodo = (index) => {
+        setTodos(todos.filter((_, i) => i !== index));
     };
 
-    const toggleComplete = (id) => {
-        setTodos(todos.map(todo =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        ));
+    const toggleComplete = (index) => {
+        const updatedTodos = todos.map((todo, i) =>
+            i === index ? { ...todo, completed: !todo.completed } : todo
+        );
+        setTodos(updatedTodos);
+    };
+
+    const clearTodos = () => {
+        setTodos([]);
     };
 
     return (
-        <div className="row">
-            <div className="col-4">
-                <TodoForm addTodo={addTodo} />
-            </div>
-            <div className="col-8">
-                <div className="row" id="todoItems">
-                    {todos.map(todo => (
-                        <TodoItem
-                            key={todo.id}
-                            todo={todo}
-                            deleteTodo={deleteTodo}
-                            toggleComplete={toggleComplete}
-                        />
-                    ))}
-                </div>
-            </div>
+        <div>
+            <Row>
+                <Col md={4}>
+                    <TodoForm addTodo={addTodo} clearTodos={clearTodos} />
+                </Col>
+                <Col md={8}>
+                    <Row id="todoItems">
+                        {todos.map((todo, index) => (
+                            <TodoItem
+                                key={index}
+                                todo={todo}
+                                index={index}
+                                deleteTodo={deleteTodo}
+                                toggleComplete={toggleComplete}
+                            />
+                        ))}
+                    </Row>
+                </Col>
+            </Row>
         </div>
     );
 };

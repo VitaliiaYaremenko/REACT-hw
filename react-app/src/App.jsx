@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TodoList from './components/TodoList';
-import TodoDetail from './components/TodoDetail';
 
 function App() {
     return (
@@ -11,7 +10,6 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<TodoList />} />
-                        <Route path="/todo-items/:id" element={<TodoDetail />} />
                     </Routes>
                 </div>
             </main>
@@ -20,4 +18,5 @@ function App() {
 }
 
 export default App;
+
 
