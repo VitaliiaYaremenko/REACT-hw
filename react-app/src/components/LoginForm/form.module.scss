@@ -1,0 +1,18 @@
+.baseFormStyle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width:40%;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.textCenter {
+  text-align: center;
+}
