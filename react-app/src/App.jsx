@@ -1,13 +1,13 @@
-import RouterMapping from "./router/RouterMapping.jsx";
+import MainPage from "./pages/MainPage";
 
 function App() {
 
 
-  return (
-      <>
-          <RouterMapping />
-      </>
-  )
+    return (
+        <>
+            <MainPage/>
+        </>
+    );
 }
 
 export default App
