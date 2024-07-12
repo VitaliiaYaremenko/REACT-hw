@@ -1,5 +1,6 @@
 import LoginPage from "./pages/LoginPage";
 import Header from "./components/Header";
+import MainPage from "./pages/MainPage";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
       <>
           {/*<LoginPage/>*/}
           <Header/>
+          <MainPage/>
       </>
   )
 }

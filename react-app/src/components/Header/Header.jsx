@@ -18,10 +18,10 @@ const darkTheme = createTheme({
     },
 });
 
-const Header = ({label='Todo List'}) => {
+const Header = ({label='TodoItem List'}) => {
     return (
         <ThemeProvider theme={darkTheme}>
-            <AppBar position="static">
+            <AppBar position="static" sx={{mb:2}}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
