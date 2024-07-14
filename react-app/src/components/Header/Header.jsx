@@ -18,7 +18,7 @@ const darkTheme = createTheme({
     },
 });
 
-const Header = ({label='TodoItem List'}) => {
+const Header = ({label='TodoListItem List'}) => {
     return (
         <ThemeProvider theme={darkTheme}>
             <AppBar position="static" sx={{mb:2}}>
