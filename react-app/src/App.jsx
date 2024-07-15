@@ -1,16 +1,14 @@
-import LoginPage from "./pages/LoginPage";
 import Header from "./components/Header";
-import MainPage from "./pages/MainPage";
+import RouterMapping from "./routerConfig/routerMapping.jsx";
 
-function App() {
+export default function App() {
 
   return (
       <>
-          {/*<LoginPage/>*/}
           <Header/>
-          <MainPage/>
+          <RouterMapping/>
+
       </>
   )
 }
 
-export default App

@@ -52,7 +52,7 @@ const TodoListForm = ({onSubmit}) => {
                         fullWidth={true}
                         margin='normal'
                         multiline
-                        rows={12}
+                        rows={6}
                         value={formik.values.description}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -62,8 +62,6 @@ const TodoListForm = ({onSubmit}) => {
                 </FormGroup>
                 <Stack direction="row" spacing={2}>
                     <Button type='submit' variant="contained" endIcon={<SendIcon/>}>Create</Button>
-                    {/*<Button onClick={handleReset} color="info" variant="contained">Clear</Button>*/}
-                    {/*<Button onClick={handleDeleteAll} color="error" variant="outlined" startIcon={<DeleteIcon />}>Delete</Button>*/}
                 </Stack>
             </form>
         </>

@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { StorageKey } from "../../utils/const";
 import Typography from "@mui/material/Typography";
 
+
 const MainPage = () => {
     const [todoItems, setTodoItems] = useState([]);
 
@@ -22,38 +23,54 @@ const MainPage = () => {
         }
     }, []);
 
-
     useEffect(() => {
         localStorage.setItem(StorageKey, JSON.stringify(todoItems));
     }, [todoItems]);
 
-
     const handleSubmit = (data) => {
-        const newTodo = { ...data, id: uuidv4() };
+        const newTodo = { ...data, id: uuidv4(), status: 'pending' };
         setTodoItems(prevItems => [...prevItems, newTodo]);
+    };
+
+    const handleStatusChange = (id, newStatus) => {
+        setTodoItems(prevItems =>
+            prevItems.map(item =>
+                item.id === id ? { ...item, status: newStatus } : item
+            )
+        );
+    };
+
+    const handleDelete = (id) => {
+        setTodoItems(prevItems => prevItems.filter(item => item.id !== id));
     };
 
     const createItems = () => {
         if (!todoItems.length) return <Typography sx={{fontFamily: 'monospace'}} variant='h4' component='h5'>No data</Typography>;
-        return todoItems.reduceRight((acc, { title, description, id }) => {
-            acc.push(<TodoListItem title={title} description={description} key={id} />);
+        return todoItems.reduceRight((acc, {id, title, description, status }) => {
+            acc.push(
+                <TodoListItem
+                    key={id}
+                    id={id}
+                    title={title}
+                    description={description}
+                    status={status}
+                    onStatusChange={handleStatusChange}
+                    onDelete={handleDelete}
+                />
+            );
             return acc;
         }, []);
     };
 
     return (
         <BaseTemplate textTitle='Create your Todo List'>
-            <Container maxWidth={false}>
+            <Container maxWidth='xl'>
                 <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={4}>
-                        <Grid item xs={8}>
-                            <Paper elevation={12} sx={{ bgcolor: '#e0f2f1', pt: 5 }}>
-                                <TodoListForm onSubmit={handleSubmit} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={4}>
-                            {createItems()}
-                        </Grid>
+                    <Paper elevation={12} sx={{ bgcolor: '#e0f2f1', pt: 5, mb:5 }}>
+                        <TodoListForm onSubmit={handleSubmit} />
+                    </Paper>
+                    <Grid container spacing={2}>
+                        {createItems()}
                     </Grid>
                 </Box>
             </Container>
@@ -62,5 +79,3 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-
