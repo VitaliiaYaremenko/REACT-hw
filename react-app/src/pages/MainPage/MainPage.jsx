@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Typography from "@mui/material/Typography";
 import { Container, Grid, Box, Paper } from "@mui/material";
+import { v4 as uuidv4 } from 'uuid';
 import BaseTemplate from "../../templates/BaseTemplate";
 import TodoListItem from "../../components/TodoListItem/TodoListItem";
 import TodoListForm from "../../components/TodoListForm";
-import { v4 as uuidv4 } from 'uuid';
 import { StorageKey } from "../../utils/const";
-import Typography from "@mui/material/Typography";
 
 
 const MainPage = () => {
@@ -23,9 +23,11 @@ const MainPage = () => {
         }
     }, []);
 
+
     useEffect(() => {
         localStorage.setItem(StorageKey, JSON.stringify(todoItems));
     }, [todoItems]);
+
 
     const handleSubmit = (data) => {
         const newTodo = { ...data, id: uuidv4(), status: 'pending' };
@@ -33,11 +35,7 @@ const MainPage = () => {
     };
 
     const handleStatusChange = (id, newStatus) => {
-        setTodoItems(prevItems =>
-            prevItems.map(item =>
-                item.id === id ? { ...item, status: newStatus } : item
-            )
-        );
+        setTodoItems(prevItems => prevItems.map(item => item.id === id ? { ...item, status: newStatus } : item));
     };
 
     const handleDelete = (id) => {

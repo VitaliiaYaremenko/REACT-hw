@@ -1,7 +1,9 @@
 const routeNames = {
-    loginPage: '/login',
     mainPage: '/',
-    todoItemPage: '/open-todo',
+    pageNotFound: '*',
+    loginPage: 'login',
+    todoItemPage: '/todos/:id',
+    allTodoPage: 'todosView'
 }
 
 Object.freeze(routeNames);

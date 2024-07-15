@@ -5,8 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
-import {Container, Menu} from "@mui/material";
+import Container from '@mui/material/Container';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
@@ -35,9 +36,12 @@ const Header = ({label='TodoListItem List'}) => {
                         </Typography>
 
                       <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-                          <Typography variant='h6' component='a'>
+                          <Button
+                              variant="outlined"
+                              component={Link} to="/todosView"
+                              sx={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'white' }}>
                               All Todo
-                          </Typography>
+                          </Button>
                       </Box>
 
                         <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>

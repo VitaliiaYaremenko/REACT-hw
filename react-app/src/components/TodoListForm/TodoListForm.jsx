@@ -1,11 +1,7 @@
-import React, {useEffect, useState} from "react";
 import InputForm from "../../UI/FormInput";
-import {Grid, Stack} from "@mui/material";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
+import {Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import DeleteIcon from "@mui/icons-material/Delete";
 import FormGroup from "@mui/material/FormGroup";
 import TextField from "@mui/material/TextField";
 import {useFormik} from "formik";
@@ -49,8 +45,8 @@ const TodoListForm = ({onSubmit}) => {
                         id="description"
                         name='description'
                         label="Enter your description"
-                        fullWidth={true}
                         margin='normal'
+                        fullWidth={true}
                         multiline
                         rows={6}
                         value={formik.values.description}
@@ -66,7 +62,6 @@ const TodoListForm = ({onSubmit}) => {
             </form>
         </>
     )
-
 }
 
 export default TodoListForm;
