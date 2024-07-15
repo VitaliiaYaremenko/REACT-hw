@@ -29,7 +29,7 @@ InputForm.propTypes = {
     variant: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
+    onBlur: PropTypes.func,
     error: PropTypes.bool,
     helperText: PropTypes.string,
 };

@@ -27,7 +27,7 @@ const TodoListItem = ({ id, title, description, status: initialStatus, onStatusC
 
     return (
         <Grid item xs={4}>
-            <Paper elevation={12} sx={{ bgcolor: '#e0e0e0', mb: 5 }}>
+            <Paper elevation={12} sx={{ bgcolor: '#fff8e1', mb: 5 }}>
                 <Box sx={{ p: 3 }}>
                     <Typography sx={{ textAlign: 'center', mb: 1, fontFamily: 'monospace' }} variant='h5' component='h6'>
                         {title}

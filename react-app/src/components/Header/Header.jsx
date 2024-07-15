@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Cookies from 'cookie-js';
 
 const darkTheme = createTheme({
     palette: {
@@ -20,9 +21,15 @@ const darkTheme = createTheme({
 });
 
 const Header = ({label='TodoListItem List'}) => {
+
+    const handleLogout = () => {
+
+    };
+
+
     return (
         <ThemeProvider theme={darkTheme}>
-            <AppBar position="static" sx={{mb:2}}>
+            <AppBar position="static" >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -50,6 +57,7 @@ const Header = ({label='TodoListItem List'}) => {
                                 variant="outlined"
                                 color="inherit"
                                 startIcon={<LogoutIcon />}
+                                onClick={handleLogout}
                              >
                                 Logout
                             </Button>

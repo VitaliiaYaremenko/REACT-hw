@@ -42,7 +42,7 @@ const AllTodoPage = ({}) => {
                     <Grid container spacing={2}>
                         {todoItems.length ? todoItems.map(({ id, title, description, status }) => (
                             <Grid item xs={4} key={id}>
-                                <Paper elevation={12} sx={{ bgcolor: '#e0e0e0', mb: 5 }}>
+                                <Paper elevation={12} sx={{ bgcolor: '#dcedc8', mb: 5 }}>
                                     <Box sx={{ p: 3 }}>
                                         <Typography sx={{ textAlign: 'center', mb: 1, fontFamily: 'monospace' }} variant='h6' component='h6'>
                                             {title}
