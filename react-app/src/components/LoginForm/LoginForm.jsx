@@ -1,7 +1,6 @@
 import {useFormik} from "formik";
 import loginFormValidation from "./loginFormValidation.js";
 import InputForm from "../../UI/FormInput/index.js";
-import routeNames from "../../routerConfig/routeNames.js";
 import Cookies from "cookie-js";
 
 
@@ -11,7 +10,6 @@ const loginFormInitValues = {
 };
 
 const LoginForm = ({onSubmit}) => {
-    const {mainPage: mainPage} = routerNames;
 
 
     const formik = useFormik({
