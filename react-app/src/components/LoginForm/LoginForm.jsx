@@ -2,6 +2,8 @@ import {useFormik} from "formik";
 import loginFormValidation from "./loginFormValidation.js";
 import InputForm from "../../UI/FormInput/index.js";
 import Cookies from "cookie-js";
+import {useAuth} from "../AuthProvider/AuthProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 const loginFormInitValues = {
@@ -9,16 +11,20 @@ const loginFormInitValues = {
     password: '',
 };
 
-const LoginForm = ({onSubmit}) => {
+const LoginForm = () => {
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
 
 
     const formik = useFormik({
         initialValues: {...loginFormInitValues},
         validationSchema: loginFormValidation,
-        onSubmit: (values, {resetForm}) => {
+        onSubmit: (values, { resetForm }) => {
             Cookies.set('LoggedIn', 'true');
+            login("dummyToken");
             resetForm();
-            navigation(homePage);
+            navigate("/home");
         }
     });
 

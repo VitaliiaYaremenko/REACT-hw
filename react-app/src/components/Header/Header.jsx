@@ -7,9 +7,10 @@ import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import Container from '@mui/material/Container';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Cookies from 'cookie-js';
+import {useAuth} from "../AuthProvider/AuthProvider.jsx";
+
 
 const darkTheme = createTheme({
     palette: {
@@ -22,9 +23,14 @@ const darkTheme = createTheme({
 
 const Header = ({label='TodoListItem List'}) => {
 
-    const handleLogout = () => {
+    const navigate = useNavigate();
+    const { logout } = useAuth();
 
-    };
+    const handleLogout = () => {
+        console.log("User signed out");
+        logout();
+        navigate("/login");
+    }
 
 
     return (
